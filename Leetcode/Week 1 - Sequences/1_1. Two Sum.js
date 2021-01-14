@@ -54,6 +54,18 @@ var twoSum = function(arr, target) {
 
 
 
+// 1/10/21 https://www.hackerrank.com/challenges/icecream-parlor/problem 1 indexed
+function icecreamParlor(m, arr) {
+  let picked = [];
+  let seen = {};
+  for (let i = 0; i < arr.length; i++) {
+    let diff = m - arr[i];
+    if (seen[diff] !== undefined) picked.push(seen[diff] + 1, i + 1);
+    else seen[arr[i]] = i;
+  }
+  return picked;
+}
+
 
 
 // HashTable Way
