@@ -81,6 +81,50 @@ Have a base case if the current root node is null, just return null. It was an e
 Set up a queue. Can use just a simple empty array; Push the root into it.
 while the queue isn't empty, set a currentNode to be the first value removed from the queue.
 do the 3 temp swap thing for the currentNode's left and right nodes.
-if the those left and right aren't null, push them into the queue array to feed the while loop to keep it going.
+if the those left and right aren't null (meaning there's still more to go), 
+push them into the queue array to feed the while loop to keep it going.
 When the queue is finally empty, return the inverted Tree.
 */
+
+
+
+
+
+
+
+// // 6/11/21 first attempt WORKS:
+// var invertTree = function(root) {
+//   if (!root) return root;
+  
+//   let temp = root.left;
+//   root.left = root.right;
+//   root.right = temp;
+// /*  OR, you can do: */
+//   // [root.left, root.right] = [root.right, root.left]
+//   console.log(root.val, root.left, root.right);
+//   invertTree(root.left);
+//   invertTree(root.right);
+  
+//   return root;
+// };
+
+
+// // 6/11/21 2nd attempt iterative using a queue, this is more efficient
+// const invertTree = (root) => {
+//   if (!root) return root;
+//   let queue = [];
+//   queue.push(root);
+//   while (queue.length) {
+//     let curr = queue.shift();
+    
+//     let temp = curr.left;
+//     curr.left = curr.right;
+//     curr.right = temp;
+    
+//     // [curr.left, curr.right] = [curr.right, curr.left]; // SLOWER THAN TEMP variable way
+//     if (curr.left !== null) queue.push(curr.left);
+//     if (curr.right !== null) queue.push(curr.right);
+//   }
+//   return root;
+// }
+
